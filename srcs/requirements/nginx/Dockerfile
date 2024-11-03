@@ -1,10 +1,11 @@
-FROM debian:buster
+FROM debian:bullseye
 
-RUN apt-get update && apt-get install nginx openssl -y
+RUN apt-get update && apt-get install nginx openssl iputils-ping -y
 RUN mkdir -p /run/nginx
 RUN mkdir -p /etc/nginx/ssl
 
 COPY ./conf/nginx.conf /etc/nginx/conf.d
+COPY ./conf/index.php /var/www/html/index.php
 RUN chmod -R 755 /etc/nginx /var/www/html
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
     -subj "/C=FR/ST=NouvelleAquitaine/L=Angouleme/O=42/OU=Inception/CN=arthurmanalangin.42.fr" \

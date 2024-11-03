@@ -5,16 +5,25 @@ services:
     container_name: nginx
     ports:
       - "443:443"  # Port https, xxx:xxx == ipv4:ipv6 ? Non Mappe le porte de Conteneur => Machine hote
+    volumes:
+      - volume_wordpress:/var/www/html
     networks:
       - intra_network
-  wordpress:
+
+  wordpress:  
     build:
       context: ./requirements/wordpress
     container_name: wordpress
     ports:
-      -"8010:8010"
+      - "8010:8010"
+    volumes:
+      - volume_wordpress:/var/www/html
     networks:
       - intra_network
+
+volumes:
+  volume_wordpress:
+
 networks:
   intra_network:
     driver: bridge
