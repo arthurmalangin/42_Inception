@@ -23,6 +23,7 @@ services:
 
 volumes:
   volume_wordpress:
+  volume_mariadb:
 
 networks:
   intra_network:
