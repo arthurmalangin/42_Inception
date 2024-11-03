@@ -1,6 +1,6 @@
 FROM debian:bullseye
 
-RUN apt-get update && apt-get install php php-fpm curl -y
+RUN apt-get update && apt-get install php php-fpm php-mysql curl -y
 
 #dl wordpress cli : https://wp-cli.org/fr/
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
