@@ -1,0 +1,13 @@
+services:
+  nginx:
+    build:
+      context: ./requirements/nginx  # Emplacement du Dockerfile
+    container_name: nginx
+    ports:
+      - "443:443"  # Port https, xxx:xxx == ipv4:ipv6 ? Non Mappe le porte de Conteneur => Machine hote
+    networks:
+      - intra_network
+
+networks:
+  intra_network:
+    driver: bridge
