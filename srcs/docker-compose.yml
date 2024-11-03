@@ -14,10 +14,28 @@ services:
     build:
       context: ./requirements/wordpress
     container_name: wordpress
+    depends_on:
+      - mariadb
     ports:
       - "8010:8010"
     volumes:
       - volume_wordpress:/var/www/html
+    networks:
+      - intra_network
+
+  mariadb:
+    build:
+      context: ./requirements/mariadb
+    container_name: mariadb
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - volume_mariadb:/var/lib/mysql
     networks:
       - intra_network
 
