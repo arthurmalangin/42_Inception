@@ -1,6 +1,12 @@
 # 42_Inception
 Ce projet a pour but d'approfondir vos connaissances en vous faisant utiliser Docker. Vous allez virtualiser plusieurs images Docker en les créant dans votre nouvelle machine virtuelle personnelle.
 
+
+Config Nginx:
+https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms
+https://www.digitalocean.com/community/tutorials/understanding-and-implementing-fastcgi-proxying-in-nginx
+
+# Commandes Importantes :
 Run sont image sans docker-compose:
 
 Build l'image:
@@ -20,7 +26,7 @@ Lancer le conteneur a partir de l'image:
             nom du container/docker
         - "mon_image"
             nom de l'image qu'on a build juste avant
-        
+
 Lister les conteneurs actifs:
     -> docker ps
 

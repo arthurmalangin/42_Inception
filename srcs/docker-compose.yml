@@ -7,7 +7,14 @@ services:
       - "443:443"  # Port https, xxx:xxx == ipv4:ipv6 ? Non Mappe le porte de Conteneur => Machine hote
     networks:
       - intra_network
-
+  wordpress:
+    build:
+      context: ./requirements/wordpress
+    container_name: wordpress
+    ports:
+      -"8010:8010"
+    networks:
+      - intra_network
 networks:
   intra_network:
     driver: bridge
