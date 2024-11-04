@@ -11,13 +11,17 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/
 
 RUN mkdir -p /run/php
+WORKDIR	/var/www/wordpress/
 
+#On copie le script d'installation
+COPY ./tools/wp_cli_install.sh /usr/local/bin/wp_cli_install.sh
+RUN chmod +x /usr/local/bin/wp_cli_install.sh 
+# le chmod est obligatoire sinon il arrive pas a l'exec
+
+#ouvrir le port 8010
 EXPOSE 8010
 
-COPY ./tools/wp_cli_install.sh /usr/local/bin/wp_cli_install.sh
-RUN chmod +x /usr/local/bin/wp_cli_install.sh
-
-#on va utiliser un Entrypoint pour executer plus de commande en plus de fpm
+#on va utiliser un Entrypoint pour executer le script
 ENTRYPOINT ["/usr/local/bin/wp_cli_install.sh"]
 
 
