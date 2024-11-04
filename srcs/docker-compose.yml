@@ -16,6 +16,7 @@ services:
     container_name: wordpress
     depends_on:
       - mariadb
+      - nginx
     ports:
       - "8010:8010"
     volumes:
@@ -41,7 +42,17 @@ services:
 
 volumes:
   volume_wordpress:
+    driver: local
+    driver_opts:
+      type: none
+      o:  bind
+      device: ~/data/wordpress
   volume_mariadb:
+    driver: local
+    driver_opts:
+      type: none
+      o:  bind
+      device: ~/data/mariadb
 
 networks:
   intra_network:

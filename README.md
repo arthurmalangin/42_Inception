@@ -3,14 +3,20 @@ Ce projet a pour but d'approfondir vos connaissances en vous faisant utiliser Do
 
 
 Config Nginx:
-https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms
-https://www.digitalocean.com/community/tutorials/understanding-and-implementing-fastcgi-proxying-in-nginx
+`https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms`
+`https://www.digitalocean.com/community/tutorials/understanding-and-implementing-fastcgi-proxying-in-nginx`
 
 # Installation Docker :
 
+Dl le script d'installation:
+```shell
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+dockerd-rootless-setuptool.sh install
+```
 
 # Commandes Importantes :
-Run sont image sans docker-compose:
+Run son image sans docker compose:
 
 Build l'image:
 ```shell

@@ -8,4 +8,4 @@ RUN mkdir -p /var/run/mysqld && chown -R mysql:mysql /var/run/mysqld
 
 EXPOSE 3306
 
-CMD ["mysqld"]
+CMD ["./ddb_init.sh"]
