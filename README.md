@@ -6,17 +6,23 @@ Config Nginx:
 https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms
 https://www.digitalocean.com/community/tutorials/understanding-and-implementing-fastcgi-proxying-in-nginx
 
+# Installation Docker :
+
+
 # Commandes Importantes :
 Run sont image sans docker-compose:
 
 Build l'image:
+```shell
     -> docker build -t mon_image .
         - "-t mon_image"
             Assigne un nom / un tag
         - "."
             Specifie le repertoire ou est le Dockerfile
+```
 
 Lancer le conteneur a partir de l'image:
+```shell
     -> docker run -d -p 443:443 --name mon_docker mon_image
         - "-wd"
             flag pour executer en arriere plan
@@ -26,21 +32,28 @@ Lancer le conteneur a partir de l'image:
             nom du container/docker
         - "mon_image"
             nom de l'image qu'on a build juste avant
+```
 
 Lister les conteneurs actifs:
-    -> docker ps
+```shell
+docker ps
+```
 
 Acceder aux logs du contenur:
+```shell
     -> docker logs mon_conteneur
-
+```
 Acceder aux conteneur en bash:
+```shell
     -> docker exec -it mon_conteneur bash
         (nginx -t direct dans le docker pour voir les problemes de conf)
-
+```
 Arreter le conteneur
+```shell
     -> docker stop mon_conteneur
-
+```
 Supprimer le conteneur:
+```shell
     -> docker rm mon_conteneur
-
+```
 

@@ -6,7 +6,7 @@ up :
 down : 
 	@docker compose -f ./srcs/docker-compose.yml down
 
-clear :
+clear : #Todo rm -rf les fichier des volumes
 	@docker compose -f ./srcs/docker-compose.yml rm
 
 stop : 
