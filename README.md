@@ -16,23 +16,23 @@ Build l'image:
 ```shell
 docker build -t mon_image .
 ```
-        - "-t mon_image"
-            Assigne un nom / un tag
-        - "."
-            Specifie le repertoire ou est le Dockerfile
+- "-t mon_image"
+    Assigne un nom / un tag
+- "."
+    Specifie le repertoire ou est le Dockerfile
 
 Lancer le conteneur a partir de l'image:
 ```shell
 docker run -d -p 443:443 --name mon_docker mon_image
 ```
-        - "-wd"
-            flag pour executer en arriere plan
-        - "-p 443:443"
-            mappe les ports 443 host vers 443 du container
-        - "--name mon_docker"
-            nom du container/docker
-        - "mon_image"
-            nom de l'image qu'on a build juste avant
+- "-wd"
+    flag pour executer en arriere plan
+- "-p 443:443"
+    mappe les ports 443 host vers 443 du container
+- "--name mon_docker"
+    nom du container/docker
+- "mon_image"
+    nom de l'image qu'on a build juste avant
 
 Lister les conteneurs actifs:
 ```shell
@@ -43,6 +43,7 @@ Acceder aux logs du contenur:
 ```shell
 docker logs mon_conteneur
 ```
+
 Acceder aux conteneur en bash:
 ```shell
 docker exec -it mon_conteneur bash
