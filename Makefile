@@ -12,7 +12,7 @@ clear: down stop
 	@docker volume rm -f `docker volume ls`
 	@sudo rm -rf /home/arthur/data
 
-hardclear:
+prune:
 	@docker system prune -af
 
 down:

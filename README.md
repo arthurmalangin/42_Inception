@@ -65,3 +65,12 @@ Supprimer le conteneur:
 docker rm mon_conteneur
 ```
 
+# Bonus
+Test redis:
+```shell
+docker exec -it redis redis-cli
+PING
+SET test_key "hello"
+GET test_key
+INFO
+```

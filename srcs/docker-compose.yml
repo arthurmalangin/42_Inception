@@ -47,6 +47,7 @@ services:
     env_file: 
       - .env
 
+#BONUS =====================================
   ftp:
     image: ftp
     build: ./requirements/bonus/ftp
@@ -61,6 +62,24 @@ services:
     restart: always
     env_file:
       - .env
+
+  redis:
+    image: redis
+    build: ./requirements/bonus/redis
+    container_name: redis
+    depends_on:
+      - wordpress
+    ports:
+      - "6379:6379"
+    volumes:
+      - volume_wordpress:/var/www/html
+    networks:
+      - intra_network
+    restart: always
+    env_file:
+      - .env
+
+# ==========================================
 
 volumes:
   volume_wordpress:
