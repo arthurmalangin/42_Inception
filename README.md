@@ -31,7 +31,7 @@ Lancer le conteneur a partir de l'image:
 ```shell
 docker run -d -p 443:443 --name mon_docker mon_image
 ```
-- "-wd"
+- "-d"
     flag pour executer en arriere plan
 - "-p 443:443"
     mappe les ports 443 host vers 443 du container

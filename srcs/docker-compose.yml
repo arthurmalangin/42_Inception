@@ -5,6 +5,8 @@ services:
     build:
       context: ./requirements/nginx  # Emplacement du Dockerfile
     container_name: nginx
+    depends_on:
+      - wordpress
     ports:
       - "443:443"  # Port https, xxx:xxx == ipv4:ipv6 ? Non Mappe le porte de Conteneur => Machine hote
     volumes:
@@ -43,6 +45,21 @@ services:
       - intra_network
     restart: always
     env_file: 
+      - .env
+
+  ftp:
+    image: ftp
+    build: ./requirements/bonus/ftp
+    container_name: ftp
+    ports:
+      - "21:21"
+      - "21000-21010:21000-21010" #port passif pour le get d'info
+    volumes:
+      - volume_wordpress:/var/www/html
+    networks:
+      - intra_network
+    restart: always
+    env_file:
       - .env
 
 volumes:

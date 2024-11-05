@@ -12,6 +12,9 @@ clear: down stop
 	@docker volume rm -f `docker volume ls`
 	@sudo rm -rf /home/arthur/data
 
+hardclear:
+	@docker system prune -af
+
 down:
 	@echo "Docker down.."
 	@docker compose -f ./srcs/docker-compose.yml down -v
