@@ -4,6 +4,7 @@ up:
 	@echo "Docker up"
 	@mkdir -p ~/data/wordpress
 	@mkdir -p ~/data/mariadb
+	@mkdir -p ~/data/website
 	@docker compose -f ./srcs/docker-compose.yml up --build -d
 	@docker ps
 

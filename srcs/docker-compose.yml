@@ -79,9 +79,43 @@ services:
     env_file:
       - .env
 
+  website:
+    image: website
+    build:
+      context: ./requirements/bonus/website  # Emplacement du Dockerfile
+    container_name: website
+    ports:
+      - "444:444"
+    volumes:
+      - volume_website:/var/www/html
+    networks:
+      - intra_network
+    restart: always
+    env_file: .env
+  
+  adminer:
+    image: adminer
+    build: ./requirements/bonus/adminer
+    container_name: adminer
+    depends_on:
+      - mariadb
+    ports:
+      - "8011:8011"
+    networks:
+      - intra_network
+    restart: always
+    env_file:
+      - .env
+
 # ==========================================
 
 volumes:
+  volume_website:
+    driver: local
+    driver_opts:
+      type: none
+      o:  bind
+      device: ~/data/website
   volume_wordpress:
     driver: local
     driver_opts:
