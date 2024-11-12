@@ -114,7 +114,6 @@ services:
       - /:/rootfs:ro #Process
       - /sys:/sys:ro #SubContainer
       - /var/run:/var/run:ro #DockerContainer
-
     networks:
       - intra_network
     container_name: cadvisor
