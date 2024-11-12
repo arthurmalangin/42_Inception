@@ -107,6 +107,21 @@ services:
     env_file:
       - .env
 
+  cadvisor:
+    image: cadvisor
+    build: requirements/bonus/cadvisor/
+    volumes:
+      - /:/rootfs:ro #Process
+      - /sys:/sys:ro #SubContainer
+      - /var/run:/var/run:ro #DockerContainer
+
+    networks:
+      - intra_network
+    container_name: cadvisor
+    ports:
+      - "8080:8080"
+    restart: always
+
 # ==========================================
 
 volumes:
