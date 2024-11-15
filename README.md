@@ -74,3 +74,16 @@ SET test_key "hello"
 GET test_key
 INFO
 ```
+
+# Bugs commun:
+Par defaut les ports en dessous de 1024 necessite des privileges superieur :
+```shell
+Error response from daemon: driver failed programming external connectivity on endpoint cadvisor (ac77633a8a49e579f23141f4f2f661c6bcfb0b49d048c72d34152ec8b566f371): failed to bind port 0.0.0.0:8080/tcp: Error starting userland proxy: listen tcp4 0.0.0.0:8080: bind: address already in use
+make: *** [Makefile:8: up] Error 1
+```
+
+La solution (la plus simple mais pas la meilleure):
+```shell
+echo "net.ipv4.ip_unprivileged_port_start=80" | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
+```
