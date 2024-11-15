@@ -1,6 +1,6 @@
 FROM debian:bullseye
 
-RUN apt-get update && apt-get install nginx netcat netcat-openbsd openssl -y
+RUN apt-get update -y && apt-get upgrade -y && apt-get install nginx netcat netcat-openbsd openssl -y
 RUN mkdir -p /run/nginx
 RUN mkdir -p /etc/nginx/ssl
 
@@ -16,6 +16,5 @@ EXPOSE 443
 #COPY ./conf/entrypoint.sh /entrypoint.sh
 #RUN chmod +x /entrypoint.sh
 #ENTRYPOINT ["/entrypoint.sh"]
-    
 
 CMD ["nginx", "-g", "daemon off;"]
