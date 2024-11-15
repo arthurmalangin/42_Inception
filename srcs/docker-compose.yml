@@ -48,78 +48,78 @@ services:
       - .env
 
 #BONUS =====================================
-  ftp:
-    image: ftp
-    build: ./requirements/bonus/ftp
-    container_name: ftp
-    ports:
-      - "21:21"
-      - "21000-21010:21000-21010" #port passif pour le get d'info
-    volumes:
-      - volume_wordpress:/var/www/html
-    networks:
-      - intra_network
-    restart: always
-    env_file:
-      - .env
+  # ftp:
+  #   image: ftp
+  #   build: ./requirements/bonus/ftp
+  #   container_name: ftp
+  #   ports:
+  #     - "21:21"
+  #     - "21000-21010:21000-21010" #port passif pour le get d'info
+  #   volumes:
+  #     - volume_wordpress:/var/www/html
+  #   networks:
+  #     - intra_network
+  #   restart: always
+  #   env_file:
+  #     - .env
 
-  redis:
-    image: redis
-    build: ./requirements/bonus/redis
-    container_name: redis
-    depends_on:
-      - wordpress
-    ports:
-      - "6379:6379"
-    volumes:
-      - volume_wordpress:/var/www/html
-    networks:
-      - intra_network
-    restart: always
-    env_file:
-      - .env
+  # redis:
+  #   image: redis
+  #   build: ./requirements/bonus/redis
+  #   container_name: redis
+  #   depends_on:
+  #     - wordpress
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - volume_wordpress:/var/www/html
+  #   networks:
+  #     - intra_network
+  #   restart: always
+  #   env_file:
+  #     - .env
 
-  website:
-    image: website
-    build:
-      context: ./requirements/bonus/website  # Emplacement du Dockerfile
-    container_name: website
-    ports:
-      - "444:444"
-    volumes:
-      - volume_website:/var/www/html
-    networks:
-      - intra_network
-    restart: always
-    env_file: .env
+  # website:
+  #   image: website
+  #   build:
+  #     context: ./requirements/bonus/website  # Emplacement du Dockerfile
+  #   container_name: website
+  #   ports:
+  #     - "444:444"
+  #   volumes:
+  #     - volume_website:/var/www/html
+  #   networks:
+  #     - intra_network
+  #   restart: always
+  #   env_file: .env
   
-  adminer:
-    image: adminer
-    build: ./requirements/bonus/adminer
-    container_name: adminer
-    depends_on:
-      - mariadb
-    ports:
-      - "8011:8011"
-    networks:
-      - intra_network
-    restart: always
-    env_file:
-      - .env
+  # adminer:
+  #   image: adminer
+  #   build: ./requirements/bonus/adminer
+  #   container_name: adminer
+  #   depends_on:
+  #     - mariadb
+  #   ports:
+  #     - "8011:8011"
+  #   networks:
+  #     - intra_network
+  #   restart: always
+  #   env_file:
+  #     - .env
 
-  cadvisor:
-    image: cadvisor
-    build: requirements/bonus/cadvisor/
-    volumes:
-      - /:/rootfs:ro #Process
-      - /sys:/sys:ro #SubContainer
-      - /var/run:/var/run:ro #DockerContainer
-    networks:
-      - intra_network
-    container_name: cadvisor
-    ports:
-      - "8080:8080"
-    restart: always
+  # cadvisor:
+  #   image: cadvisor
+  #   build: requirements/bonus/cadvisor/
+  #   volumes:
+  #     - /:/rootfs:ro #Process
+  #     - /sys:/sys:ro #SubContainer
+  #     - /var/run:/var/run:ro #DockerContainer
+  #   networks:
+  #     - intra_network
+  #   container_name: cadvisor
+  #   ports:
+  #     - "8080:8080"
+  #   restart: always
 
 # ==========================================
 

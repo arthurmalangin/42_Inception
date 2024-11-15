@@ -1,7 +1,9 @@
 #!/bin/bash
 
 #on demarre le service mariadb
-service mariadb start
+mysqld_safe &
+
+sleep 3
 
 mysql -u root <<EOF
 CREATE DATABASE IF NOT EXISTS \`$MYSQL_DATABASE\`;
