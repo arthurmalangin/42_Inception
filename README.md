@@ -1,5 +1,5 @@
 # 42_Inception
-Ce projet a pour but d'approfondir vos connaissances en vous faisant utiliser Docker. Vous allez virtualiser plusieurs images Docker en les créant dans votre nouvelle machine virtuelle personnelle.
+Complete containerized web infrastructure using Docker. Sets up a secure WordPress website with NGINX reverse proxy, MariaDB database, and SSL encryption. All services run in separate containers with custom Dockerfiles.
 
 
 Config Nginx:
